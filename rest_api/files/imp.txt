@@ -1,0 +1,60 @@
+enp1s0    Link encap:Ethernet  HWaddr 8c:ec:4b:67:84:18  
+          inet addr:10.1.32.117  Bcast:10.1.35.255  Mask:255.255.252.0
+          inet6 addr: fe80::f94d:c0ae:3963:47f8/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:4664099 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2211398 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5734411203 (5.7 GB)  TX bytes:1361597177 (1.3 GB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:17605 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:17605 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1 
+          RX bytes:11441294 (11.4 MB)  TX bytes:11441294 (11.4 MB)
+xqueuelen:5
+
+wunggary/speech-to-text    
+
+ docker run -i -t -d -p 8880:8880 wunggary/speech-to-text    
+ 
+ 
+ buriburisuri/speech-to-text-wavenet   latest                          3bad4e96a9d6        3 years ago         1.83GB
+
+
+docker run -i -t -d  --net="host" -p 8889:8889  buriburisuri/speech-to-text-wavenet  
+ 
+ 
+ docker cp /home/cse31/ASR/temp.flac  3f888d6627ac:/buriburisuri/speech-to-text-wavenet/temp.flac
+ 
+ docker exec b0fb321854dd cp ./Sample_BeeMoved_96kHz24bit.flac  b0fb321854dd:Sample_BeeMoved_96kHz24bit.flac
+
+
+docker container stop $(docker container ls -aq)
+docker container rm $(docker container ls -aq)
+
+
+docker run -it -name="stt"   buriburisuri/speech-to-text-wavenet
+
+
+
+
+
+docker exec 3f888d6627ac ls
+
+
+docker run <arguments> <image> <command>
+
+docker run recognize.py --file < temp.flac 3f888d6627ac python recognize.py --file
+
+scp -r  cse31@10.1.32.117:/home/cse31/cluster/vision/* ./
+
+
+
+ 
+ 
+ scp -r  cse31@10.1.32.117:/home/cse31/cluster/MALWARE/MalwareGAN/* ./
+
